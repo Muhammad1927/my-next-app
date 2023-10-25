@@ -3,9 +3,9 @@
 export default function handler(req, res) {
  console.log(req.method);
  console.log(req.body);
-  if (req.method !== 'POST') {
-     res.status(200).json({ name: "Jhon Doe" });
+  if (req.method === 'POST') {
+     res.status(200).json({ message: 'Hello' + req.body.displayName });
   } else {
-    
+    res.status(404).json({error: true, message: 'method tidak diijinkan'})
   }
 }
